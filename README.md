@@ -3,7 +3,7 @@ Millisecond-Resolution Timer with SSD1306 OLED (I2C)
 
 ---
 
-## Overview
+## 1. Overview
 
 This project implements a **countdown stopwatch** using an STM32 microcontroller and an SSD1306 128x64 OLED display over I2C.
 
@@ -21,19 +21,19 @@ The project is developed using **STM32CubeIDE** and **HAL drivers**.
 
 ---
 
-## Hardware
+## 2. Hardware
 
-### Microcontroller Board
+### 2.1 Microcontroller Board
 
 - STM32 Nucleo F446RE
 
-### Other Peripherals
+### 2.2 Other Peripherals
 
 - 3 Tach Buttons (4 Pins)
 - SSD1306 OLED Screen (0.96")
 ---
 
-### Display
+### 2.3 Display
 
 | Component | Specification |
 |------------|--------------|
@@ -44,7 +44,7 @@ The project is developed using **STM32CubeIDE** and **HAL drivers**.
 
 ---
 
-### Button Connections
+### 2.4 Button Connections
 
 All buttons are:
 
@@ -60,7 +60,7 @@ All buttons are:
 
 ---
 
-### I2C Configuration
+### 2.5 I2C Configuration
 
 | Parameter | Value |
 |------------|-------|
@@ -81,7 +81,7 @@ Default pin mapping:
 
 ---
 
-### Timer Configuration (TIM2)
+### 2.6 Timer Configuration (TIM2)
 
 Used for 1 ms interrupt generation.
 
@@ -97,9 +97,9 @@ This produces a **1 millisecond interrupt period**.
 
 ---
 
-## Software Architecture
+## 3. Software Architecture
 
-### State Machine
+### 3.1 State Machine
 
 ```c
 typedef enum {
@@ -117,7 +117,7 @@ typedef enum {
 | PAUSED   | Countdown frozen         |
 | FINISHED | Countdown reached zero   |
 
-### Button Logic
+### 3.2 Button Logic
 
 | Method    | Value         |
 | --------- | ------------- |
@@ -125,7 +125,7 @@ typedef enum {
 | Duration  | 50 ms         |
 | Mechanism | HAL_GetTick() |
 
-### Button Behavior
+### 3.3 Button Behavior
 #### Time Set (PA0)
 | Condition      | Action                             |
 | -------------- | ---------------------------------- |
@@ -148,13 +148,13 @@ typedef enum {
 
 ---
 
-## Build & Flash
-### Requirements
+## 4. Build & Flash
+### 4.1 Requirements
 - STM32CubeIDE
 - ST-Link
 - STM32CubeProgrammer (optional)
 
-### Steps
+### 4.2 Steps
 1. Open project in STM32CubeIDE
 2. Build
 3. Flash via ST-Link
@@ -162,14 +162,14 @@ typedef enum {
 
 ---
 
-## Libraries Used
+## 5. Libraries Used
 * **STM32 HAL Drivers** (via STM32CubeIDE)
 * **ssd1306.h / ssd1306_fonts.h** ([SSD1306 OLED display library](https://github.com/afiskon/stm32-ssd1306/tree/master).)
 * **stdio.h**, **stdlib.h** (Standard C libraries)
 
 ---
 
-## Others
+## 6. Others
 
 This section contains a general overview of the project on a breadboard and a sample video of the project in action.
 
